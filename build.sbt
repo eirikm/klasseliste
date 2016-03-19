@@ -12,3 +12,10 @@ libraryDependencies ++= Seq(
 
 
 scalacOptions += "-deprecation"
+
+
+// empty stage to please heroku
+// see https://devcenter.heroku.com/articles/scala-support#build-behavior
+val stage = taskKey[Unit]("Stage task")
+val Stage = config("stage")
+stage := {}
