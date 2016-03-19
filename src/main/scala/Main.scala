@@ -9,5 +9,7 @@ object Echo extends unfiltered.filter.Plan {
 }
 
 object Main extends App {
-  unfiltered.jetty.Server.http(8909, "0.0.0.0").plan(Echo).run()
+  val port = Option(System.getenv("PORT")).map(_.toInt).getOrElse(8909)
+
+  unfiltered.jetty.Server.http(port, "0.0.0.0").plan(Echo).run()
 }
