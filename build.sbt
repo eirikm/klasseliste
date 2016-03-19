@@ -1,8 +1,11 @@
-name := "klasseliste"
+enablePlugins(JavaAppPackaging)
 
+name := "klasseliste"
 version := "1.0"
 
 scalaVersion := "2.11.8"
+scalacOptions += "-deprecation"
+
 
 libraryDependencies ++= Seq(
   "net.databinder" %% "unfiltered-filter" % "0.8.4",
@@ -10,12 +13,4 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 )
 
-
-scalacOptions += "-deprecation"
-
-
-// empty stage to please heroku
-// see https://devcenter.heroku.com/articles/scala-support#build-behavior
-val stage = taskKey[Unit]("Stage task")
-val Stage = config("stage")
-stage := {}
+mainClass in Compile := Some("Main")
