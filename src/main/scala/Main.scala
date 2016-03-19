@@ -9,5 +9,5 @@ object Echo extends unfiltered.filter.Plan {
 }
 
 object Main extends App {
-  unfiltered.jetty.Server.local(8909).plan(Echo).run()
+  unfiltered.jetty.Server.http(8909, "0.0.0.0").plan(Echo).run()
 }
